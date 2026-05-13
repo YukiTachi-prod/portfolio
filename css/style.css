@@ -569,16 +569,51 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .hero { padding: 40px 0 32px; }
-  .students-grid { grid-template-columns: 1fr; }
-  .student-card:last-child { grid-column: auto; max-width: 100%; margin: 0; }
+  /* Layout */
+  .container { padding: 0 16px; }
+
+  /* Header */
+  .header-course { display: none; }
+  .header-inner { gap: 10px; }
+  .header-nav a { padding: 5px 8px; font-size: 12px; }
+
+  /* Hero (index) */
+  .hero { padding: 36px 0 28px; }
+  .hero-badge { font-size: 11px; padding: 5px 12px; }
   .hero-meta { gap: 16px; }
   .hero-divider { display: none; }
-  .student-hero { flex-direction: column; align-items: flex-start; }
+
+  /* Student grid (index, light theme) */
+  .students-grid { grid-template-columns: 1fr; }
+  .student-card:last-child { grid-column: auto; max-width: 100%; margin: 0; }
+
+  /* Student hero (inner pages) */
+  .student-hero { gap: 12px; flex-wrap: wrap; padding: 28px 0 32px; }
   .student-hero-photo { display: none; }
-  .header-course { display: none; }
-  .pdf-embed { height: 400px; }
+  .student-hero-avatar { width: 48px; height: 48px; font-size: 18px; }
+  .student-hero-info h1 { font-size: 22px; }
+
+  /* Breadcrumb */
+  .breadcrumb { padding: 12px 0; }
+
+  /* Activities */
+  .activities { gap: 32px; padding-bottom: 48px; }
+  .activity-header { gap: 10px; }
+
+  /* File cards */
+  .pdf-embed { height: 360px; }
   .files-grid.cols-2 { grid-template-columns: 1fr; }
+  .file-card-header { flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+  .file-card-label { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .btn-download { flex-shrink: 0; }
+  .download-card { padding: 16px; gap: 12px; }
+  .txt-content { padding: 16px; font-size: 13px; }
+
+  /* Dark theme index: scale down polaroid on stacked cards */
+  .photo-frame img { width: 140px; height: 160px; }
+
+  /* Footer */
+  .site-footer { font-size: 12px; padding: 20px 0; }
 }
 
 /* ── Dark Theme (index.html only) ── */
@@ -737,20 +772,19 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* Mobile: stack vertically */
+/* Dark theme index: stack cards vertically on narrow screens */
 @media (max-width: 700px) {
   .dark-theme .student-card,
-  .dark-theme .student-card.photo-right { flex-direction: column; }
+  .dark-theme .student-card.photo-right { flex-direction: column; min-height: auto; }
   .card-photo-side {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding: 24px;
-    min-height: 180px;
   }
   .dark-theme .student-card.photo-right .card-photo-side {
     border-left: none;
     border-bottom: 1px solid var(--border);
   }
-  .card-body { padding: 20px; }
+  .card-body { padding: 20px 24px; }
 }
